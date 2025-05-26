@@ -12,9 +12,13 @@
 
 using namespace std;
 
-#include "./placeholders/Board.h"
+
+#include "./modules/connect4GameTheorie/Connect4Board.h"
+#include "./modules/connect4GameTheorie/GameTheorie.h"
+
+// #include "./placeholders/Board.h"
 #include "./placeholders/Coord.h"
-#include "./placeholders/GameTheorie.h"
+// #include "./placeholders/GameTheorie.h"
 #include "./placeholders/InverseKinematica.h"
 #include "./placeholders/SystemControl.h"
 #include "./placeholders/Vision.h"
