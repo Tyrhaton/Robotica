@@ -1,3 +1,6 @@
 [submodule "modules/connect4GameTheorie"]
 	path = modules/connect4GameTheorie
 	url = https://github.com/Tyrhaton/connect4GameTheorie.git
+[submodule "modules/ik-lib"]
+	path = modules/ik-lib
+	url = https://github.com/noutmulder/robotica-ik-lib.git
