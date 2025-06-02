@@ -13,8 +13,7 @@
 using namespace std;
 
 
-#include "./modules/connect4GameTheorie/Connect4Board.h"
-#include "./modules/connect4GameTheorie/GameTheorie.h"
+#include "./modules/connect4GameTheorie/include.h"
 
 // #include "./placeholders/Board.h"
 #include "./placeholders/Coord.h"

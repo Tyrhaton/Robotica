@@ -3,16 +3,16 @@
 int main()
 {
     cout << "[!] Starting up system\n";
-    Vision vision = Vision();
-    GameTheorie gameTheorie = GameTheorie();
-    SystemControl systemControl = SystemControl();
-    InverseKinematica inverseKinematica = InverseKinematica();
-
+    Vision vision;
+    Connect4Board emptyBoard;
     Player me = Player::PLAYER2;
+
+    GameTheorie gameTheorie(emptyBoard, me, Player::PLAYER1, 2, GameTheorie::Level::EASY);
+    SystemControl systemControl;
+    InverseKinematica inverseKinematica;
 
     systemControl.goHome();
 
-    Connect4Board emptyBoard = Connect4Board();
     vision.updateBoard(emptyBoard);
 
     bool run = true;
