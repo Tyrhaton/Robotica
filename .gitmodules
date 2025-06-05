@@ -4,3 +4,6 @@
 [submodule "modules/ik-lib"]
 	path = modules/ik-lib
 	url = https://github.com/noutmulder/robotica-ik-lib.git
+[submodule "modules/connect4vision"]
+	path = modules/connect4vision
+	url = https://github.com/HotPinkGuacamole/Connect4Vision.git
