@@ -7,7 +7,7 @@ int main()
     Connect4Board emptyBoard;
     Player me = Player::PLAYER2;
 
-    GameTheorie gameTheorie(emptyBoard, me, Player::PLAYER1, 2, GameTheorie::Level::EASY);
+    GameTheorie gameTheorie(emptyBoard, me, 2, GameTheorie::Level::EASY);
     SystemControl systemControl;
     InverseKinematica inverseKinematica;
 
