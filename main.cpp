@@ -7,7 +7,7 @@ int main()
     Connect4Board emptyBoard;
     Player startingPlayer = Player::USER; // USER (user) or BOT (system)
 
-    GameTheorie gameTheorie(emptyBoard, startingPlayer, 7, GameTheorie::Level::EASY, true);
+    GameTheorie gameTheorie(emptyBoard, startingPlayer, 7, GameTheorie::Level::HARD, true);
     SystemControl systemControl;
     InverseKinematica inverseKinematica;
 
