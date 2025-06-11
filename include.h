@@ -16,12 +16,15 @@ using namespace std;
 
 
 #include "./modules/connect4GameTheorie/include.h"
+#include "./modules/connect4vision/Connect4Vision/GameVision.h"
+#include "./modules/ik-lib/ik_solver/include/IKSolver.hpp"
+#include "./modules/ik-lib/ik_solver/include/InverseKinematics.hpp"
 
 // #include "./placeholders/Board.h"
 // #include "./placeholders/Coord.h"
 // #include "./placeholders/GameTheorie.h"
-#include "./placeholders/InverseKinematica.h"
-#include "./placeholders/SystemControl.h"
-#include "./placeholders/Vision.h"
+// #include "./placeholders/InverseKinematica.h"
+// #include "./placeholders/SystemControl.h"
+// #include "./placeholders/Vision.h"
 
 #endif // INCLUDE_H

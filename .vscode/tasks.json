@@ -1,0 +1,53 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "CMake: Configure",
+        "type": "shell",
+        "command": "cmake",
+        "args": [
+          ".."
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}/build"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "CMake: Build",
+        "type": "shell",
+        "command": "make",
+        "options": {
+          "cwd": "${workspaceFolder}/build"
+        },
+        "problemMatcher": ["$gcc"]
+      },
+      {
+        "label": "Run ik_project",
+        "type": "shell",
+        "command": "./ik_project",
+        "options": {
+          "cwd": "${workspaceFolder}/build"
+        },
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "panel": "shared"
+        }
+      },
+      {
+        "label": "Build && Run",
+        "dependsOn": [
+          "CMake: Configure",
+          "CMake: Build",
+          "Run ik_project"
+        ],
+        "dependsOrder": "sequence",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
+  
