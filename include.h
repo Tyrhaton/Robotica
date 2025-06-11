@@ -9,6 +9,8 @@
 #include <set>
 #include <unistd.h>
 #include <cstddef> 
+#include "RobotArm.hpp"
+#include "Vector3D.hpp"
 
 using namespace std;
 
@@ -16,7 +18,7 @@ using namespace std;
 #include "./modules/connect4GameTheorie/include.h"
 
 // #include "./placeholders/Board.h"
-#include "./placeholders/Coord.h"
+// #include "./placeholders/Coord.h"
 // #include "./placeholders/GameTheorie.h"
 #include "./placeholders/InverseKinematica.h"
 #include "./placeholders/SystemControl.h"
