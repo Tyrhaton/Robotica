@@ -5,9 +5,9 @@ int main()
     cout << "[!] Starting up system\n";
     Vision vision;
     Connect4Board emptyBoard;
-    Player me = Player::PLAYER2;
+    Player startingPlayer = Player::USER; // USER (user) or BOT (system)
 
-    GameTheorie gameTheorie(emptyBoard, me, 2, GameTheorie::Level::EASY);
+    GameTheorie gameTheorie(emptyBoard, startingPlayer, 7, GameTheorie::Level::EASY, true);
     SystemControl systemControl;
     InverseKinematica inverseKinematica;
 
@@ -21,8 +21,8 @@ int main()
     {
         vision.waitUntilUpdated();
         Connect4Board board = vision.getState();
-        Column bestMove = gameTheorie.getBestMove(board, me);
-        bool win = board.dropDisc(bestMove, me);
+        Column bestMove = gameTheorie.getBestMove();
+        bool win = board.dropDisc(bestMove, Player::BOT);
 
         if (win)
         {
