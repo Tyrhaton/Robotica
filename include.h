@@ -8,20 +8,22 @@
 #include <vector>
 #include <set>
 #include <unistd.h>
-#include <cstddef> 
-#include "standard_positions.hpp"
-
+#include <cstddef>
+#include <iostream>
+#include <fstream>
+#include <Eigen/Dense>
 
 using namespace std;
 
+#include "./modules/ik-lib/robot_arm/include/Vector3D.hpp"
+
+#include "standard_positions.hpp"
 
 #include "./modules/connect4GameTheorie/include.h"
 // #include "./modules/connect4vision/Connect4Vision/GameVision.h"
 #include "./modules/ik-lib/ik_solver/include/IKSolver.hpp"
 #include "./modules/ik-lib/ik_solver/include/InverseKinematics.hpp"
 #include "./modules/ik-lib/robot_arm/include/RobotArm.hpp"
-#include "./modules/ik-lib/robot_arm/include/Vector3D.hpp"
-
 
 // #include "./placeholders/Board.h"
 // #include "./placeholders/Coord.h"
