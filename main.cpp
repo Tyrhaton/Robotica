@@ -25,7 +25,6 @@ void writeToFile(const std::vector<float> &jointAnglesInDegrees, const std::stri
     outfile.close();
 }
 
-
 int main()
 {
     cout << "[!] Starting up system\n";
