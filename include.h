@@ -9,8 +9,7 @@
 #include <set>
 #include <unistd.h>
 #include <cstddef> 
-#include "include/file_writer.hpp"
-// #include "include/bot_mover.hpp"
+
 
 using namespace std;
 
@@ -23,12 +22,7 @@ using namespace std;
 #include "./modules/ik-lib/ik_solver/include/IKSolver.hpp"
 #include "./modules/ik-lib/ik_solver/include/InverseKinematics.hpp"
 #include "./modules/ik-lib/robot_arm/include/RobotArm.hpp"
+#include "include/file_writer.hpp"
 
-// #include "./placeholders/Board.h"
-// #include "./placeholders/Coord.h"
-// #include "./placeholders/GameTheorie.h"
-// #include "./placeholders/InverseKinematica.h"
-// #include "./placeholders/SystemControl.h"
-// #include "./placeholders/Vision.h"
 
 #endif // INCLUDE_H

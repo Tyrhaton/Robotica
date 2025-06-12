@@ -1,80 +1,70 @@
 #include "include.h"
 
-
-
-
 int main()
 {
     cout << "[!] Starting up system\n";
-    
+
     RobotArm robotArm;
-    GameVision vision;
     Connect4Board emptyBoard;
-
-
-    Player startingPlayer = Player::USER; // USER (user) or BOT (system)
-
-    GameTheorie brain = GameTheorie(emptyBoard, startingPlayer, 7, GameTheorie::Level::HARD, true);
-    // SystemControl systemControl;
-
-    // systemControl.goHome();
-
-    // vision.updateBoard(emptyBoard);
+    Player startingPlayer = Player::USER;
+    GameTheorie brain(emptyBoard, startingPlayer, 7, GameTheorie::Level::HARD, true);
 
     brain.printBoard();
     bool run = true;
+    string move;
 
     while (run)
     {
-        cout << "[!] Waiting for user input...\n";
-        // vision.waitUntilUpdated();
-
-        cout << "[+] User input received, updating board state\n";
-        // Connect4Board updatedBoard = vision.getState();
-
-        cout << "[!] Fetching what move the user played\n";
-        // Connect4Board::MoveInfo mi = Connect4Board::getMoveDifference(brain.getBoard(), updatedBoard);
-        // bool userWin = brain.playMove(mi.column, mi.player);
-
-        // cout << "[+] User played in column: " << Connect4Board::colToChar(mi.column) << endl;
-
-        // if (userWin)
-        // {
-        //     // end Game
-        //     cout << "[!] User won!" << endl;
-        //     break;
-        // }
-
-        cout << "[+] calculating best move for bot..." << endl;
-        Column bestMove = brain.getBestMove();
-        bool botWin = brain.playMove(bestMove, Player::BOT);
-
-        cout << "[+] Bot played in column: " << Connect4Board::colToChar(bestMove) << endl;
-
-        if (botWin)
+        cout << "User: Enter your move (A-G) or 'exit' to quit: ";
+        getline(cin, move);
+        if (move == "exit" || move == "Exit" || move == "quit" || move == "q")
         {
-            // end Game
-            cout << "[!] Bot won!" << endl;
             break;
         }
-        cout << "[+] Updated board state for vision system" << endl;
-        // vision.updateBoard(brain.getBoard());
 
-        cout << "[+] Bot played its move, now running the system control to play the move physically..." << endl;
+        Column userCol = Connect4Board::charToColumn(move[0]);
+        bool userWin = brain.playMove(userCol, Player::USER);
+        cout << "[+] User played in column: " << Connect4Board::colToChar(userCol) << endl;
+
+        brain.printBoard();
+
+        if (userWin)
+        {
+            cout << "[!] User won!" << endl;
+            break;
+        }
+
+        cout << "[+] Calculating best move for bot..." << endl;
+        Column bestMove = brain.getBestMove();
+        cout << "[+] Bot chose column: " << Connect4Board::colToChar(bestMove) << endl;
+
+        // Haal doelpositie op
+        // StandardPositions::Position p = StandardPositions::getPosition((int)bestMove);
         StandardPositions::Position p = StandardPositions::getPosition((int)bestMove);
-        std::string filename = "/home/nout/ros2_ws/joints.txt";
+        cout << "[+] Moving robot arm to play the move..." << endl;
+        robotArm.moveTo(p.pos, p.orientation);
+        cout << "[+] Move physically executed." << endl;
 
+        // Sla hoeken op NA het bewegen
         std::vector<float> finalAngles;
         for (const Joint &joint : robotArm.joints)
         {
             finalAngles.push_back(joint.getAngle());
         }
+        std::string filename = "/home/nout/ros2_ws/joints.txt";
         writeToFile(finalAngles, filename);
 
-        robotArm.moveTo(p.pos, p.orientation);
+        // Pas de zet toe op het virtuele bord
+        bool botWin = brain.playMove(bestMove, Player::BOT);
+        cout << "[+] Bot played in column: " << Connect4Board::colToChar(bestMove) << endl;
 
-        cout << "[+] Waiting until the bot has physically played the move..." << endl;
-        // vision.waitUntilFinished();
+        brain.printBoard();
+
+        if (botWin)
+        {
+            cout << "[!] Bot won!" << endl;
+            break;
+        }
 
         if (brain.getBoard().full())
         {
@@ -88,4 +78,6 @@ int main()
     brain.printHistory();
 
     cout << "[!] Shutting Down" << endl;
+
+    return 0;
 }

@@ -41,7 +41,6 @@ int main()
         // Haal doelpositie op
         // StandardPositions::Position p = StandardPositions::getPosition((int)bestMove);
         StandardPositions::Position p = StandardPositions::getPosition((int)bestMove);
-
         cout << "[+] Moving robot arm to play the move..." << endl;
         robotArm.moveTo(p.pos, p.orientation);
         cout << "[+] Move physically executed." << endl;
