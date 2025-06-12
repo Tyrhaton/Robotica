@@ -1,9 +1,10 @@
 {
-    "files.associations": {
-        "ostream": "cpp",
-        "vector": "cpp",
-        "iostream": "cpp",
-        "fstream": "cpp",
-        "dense": "cpp"
-    }
+  "files.associations": {
+    "ostream": "cpp",
+    "vector": "cpp",
+    "iostream": "cpp",
+    "fstream": "cpp",
+    "dense": "cpp"
+  },
+  "C_Cpp_Runner.msvcBatchPath": ""
 }
