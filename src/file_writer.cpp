@@ -1,8 +1,9 @@
 #include "../include/file_writer.hpp"
+#include <fstream>
+#include <iostream>
+#include <cmath>
 
-
-// Schrijft de gewrichten naar bestand (omgezet naar radialen)
-void writeToFile(const std::vector<float> &jointAnglesInDegrees, const std::string &filename)
+void writeToFile(const std::vector<float>& jointAnglesInDegrees, const std::string& filename)
 {
     std::ofstream outfile(filename);
     if (!outfile)
@@ -19,5 +20,4 @@ void writeToFile(const std::vector<float> &jointAnglesInDegrees, const std::stri
             outfile << ",";
     }
     outfile << std::endl;
-    outfile.close();
 }
