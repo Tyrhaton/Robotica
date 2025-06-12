@@ -1,7 +1,4 @@
 #include "include.h"
-#include <iostream>
-#include <fstream>
-
 
 
 
