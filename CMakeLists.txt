@@ -21,13 +21,15 @@ find_package(OpenCV REQUIRED)
 add_subdirectory(modules/ik-lib)
 
 # --- Executable: ik_project (enige die we willen) ---
-add_executable(ik_project main.cpp)
+add_executable(ik_project main.cpp src/file_writer.cpp)
 
 target_include_directories(ik_project PRIVATE
+    src
     modules/ik-lib/ik_solver/include
     modules/ik-lib/robot_arm/include
     ${OpenCV_INCLUDE_DIRS}
 )
+
 
 target_link_libraries(ik_project PRIVATE
     robot_arm
