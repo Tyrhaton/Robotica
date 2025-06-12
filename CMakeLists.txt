@@ -1,6 +1,14 @@
 # ROBOTICA/CMakeLists.txt
 cmake_minimum_required(VERSION 3.10)
+
+# Zet policy zodat we targets van subdirectories correct kunnen linken
+if(POLICY CMP0079)
+    cmake_policy(SET CMP0079 NEW)
+endif()
+
 project(RoboticaProject LANGUAGES CXX)
+
+
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

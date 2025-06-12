@@ -11,12 +11,14 @@
 #include <cstddef> 
 #include "RobotArm.hpp"
 #include "Vector3D.hpp"
+#include "standard_positions.hpp"
+
 
 using namespace std;
 
 
 #include "./modules/connect4GameTheorie/include.h"
-#include "./modules/connect4vision/Connect4Vision/GameVision.h"
+// #include "./modules/connect4vision/Connect4Vision/GameVision.h"
 #include "./modules/ik-lib/ik_solver/include/IKSolver.hpp"
 #include "./modules/ik-lib/ik_solver/include/InverseKinematics.hpp"
 

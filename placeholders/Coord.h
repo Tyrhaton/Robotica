@@ -24,7 +24,7 @@ public:
 };
 
 // NOT SET UP YET!
-constexpr array<Vector3D, 7>
+array<Vector3D, 7>
     ColumnToVector = {
         /* A */ Vector3D(0.0f, 0.0f, 0.0f),
         /* B */ Vector3D(1.0f, 0.0f, 0.0f),
