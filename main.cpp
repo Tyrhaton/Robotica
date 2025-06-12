@@ -6,13 +6,16 @@
 int main()
 {
     cout << "[!] Starting up system\n";
-    // GameVision vision;
+    
+    RobotArm robotArm;
+    GameVision vision;
     Connect4Board emptyBoard;
+
+
     Player startingPlayer = Player::USER; // USER (user) or BOT (system)
 
     GameTheorie brain = GameTheorie(emptyBoard, startingPlayer, 7, GameTheorie::Level::HARD, true);
     // SystemControl systemControl;
-    RobotArm robotArm;
 
     // systemControl.goHome();
 

@@ -21,7 +21,7 @@ find_package(OpenCV REQUIRED)
 add_subdirectory(modules/ik-lib)
 
 # --- Executable: ik_project (enige die we willen) ---
-add_executable(ik_project main.cpp src/file_writer.cpp)
+add_executable(ik_project main_theory_plus_ik.cpp src/file_writer.cpp)
 
 
 target_include_directories(

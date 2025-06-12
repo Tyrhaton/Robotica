@@ -30,16 +30,27 @@ namespace StandardPositions
         return R;
     }
 
-    // Standaardposities
-    const Position HOME = {Vector3D(0.0f, 0.0f, 0.25f), homeOrientation()};
+     // Oriëntatie voor collect-positie
+    inline Eigen::Matrix3f collectOrientation()
+    {
+        Eigen::Matrix3f R;
+        R.col(0) = Eigen::Vector3f(0, 0, 1); // X-as (placeholder)
+        R.col(1) = Eigen::Vector3f(1, 0, 0); // Y-as (niet gebruikt)
+        R.col(2) = Eigen::Vector3f(0, 0, 0); // Z-as (placeholder)
+        return R;
+    }
 
-    const Position COL_A = {Vector3D(0.25f, -0.18f, 0.300f), defaultChipOrientation()};
-    const Position COL_B = {Vector3D(0.25f, -0.12f, 0.300f), defaultChipOrientation()};
-    const Position COL_C = {Vector3D(0.25f, -0.06f, 0.300f), defaultChipOrientation()};
-    const Position COL_D = {Vector3D(0.25f, 0.00f, 0.300f), defaultChipOrientation()};
-    const Position COL_E = {Vector3D(0.25f, 0.06f, 0.300f), defaultChipOrientation()};
-    const Position COL_F = {Vector3D(0.25f, 0.12f, 0.300f), defaultChipOrientation()};
-    const Position COL_G = {Vector3D(0.25f, 0.18f, 0.300f), defaultChipOrientation()};
+    // Standaardposities
+    const Position HOME =       {Vector3D(0.0f, 0.0f, 0.25f), homeOrientation()};
+    const Position COLLECT =    {Vector3D(0.10f, 0.10f, 0.100f), collectOrientation()};
+
+    const Position COL_A =      {Vector3D(0.25f, -0.18f, 0.300f), defaultChipOrientation()};
+    const Position COL_B =      {Vector3D(0.25f, -0.12f, 0.300f), defaultChipOrientation()};
+    const Position COL_C =      {Vector3D(0.25f, -0.06f, 0.300f), defaultChipOrientation()};
+    const Position COL_D =      {Vector3D(0.25f, 0.00f, 0.300f), defaultChipOrientation()};
+    const Position COL_E =      {Vector3D(0.25f, 0.06f, 0.300f), defaultChipOrientation()};
+    const Position COL_F =      {Vector3D(0.25f, 0.12f, 0.300f), defaultChipOrientation()};
+    const Position COL_G =      {Vector3D(0.25f, 0.18f, 0.300f), defaultChipOrientation()};
 
     // Ophalen via karakter ('A' t/m 'G' of 'H' voor home)
     inline Position getPosition(char col)
@@ -57,11 +68,13 @@ namespace StandardPositions
         case 'E':
             return COL_E;
         case 'F':
-            return COL_F;
+            return COL_F; 
         case 'G':
             return COL_G;
         case 'H':
             return HOME;
+        case 'I': 
+            return COLLECT;
         case '0':
             return HOME; // eventueel fallback
         default:
@@ -72,7 +85,7 @@ namespace StandardPositions
     // Ophalen via index (0 t/m 6 → 'A' t/m 'G')
     inline Position getPosition(int colIndex)
     {
-        if (colIndex < 0 || colIndex > 7)
+        if (colIndex < 0 || colIndex > 8)
             throw std::out_of_range("Ongeldige kolomindex (alleen 0 t/m 6 zijn toegestaan)");
 
         char colChar = 'A' + colIndex;
